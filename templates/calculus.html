@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus Tutor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <a href="/" class="logo">Calculus Tutor</a>
+    <div class="container text-center mt-5">
+        <h1>Calculus Tutor</h1>
+        <form method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="concept" class="form-label">Enter a calculus concept:</label>
+                <input type="text" id="concept" name="concept" class="form-control" placeholder="e.g., differentiation">
+            </div>
+            <button type="submit" class="btn btn-custom">Get Formula</button>
+        </form>
+
+        {% if concept %}
+        <div class="mt-4">
+            <h3>Concept: {{ concept }}</h3>
+            <p><strong>Formula:</strong> {{ response|safe }}</p>
+        </div>
+        {% endif %}
+        <div class="mt-5">
+            <h2 class="section-title">Available Concepts</h2>
+            <p>You can query formulas and explanations for the following concepts:</p>
+            <div class="concepts-container">
+                <div class="concept-card">Differentiation</div>
+                <div class="concept-card">Integration</div>
+                <div class="concept-card">Limits</div>
+                <div class="concept-card">Area Under Curve</div>
+                <div class="concept-card">Slope</div>
+                <div class="concept-card">Continuity</div>
+            </div>
+        </div>        
+    </div>
+</body>
+</html>
